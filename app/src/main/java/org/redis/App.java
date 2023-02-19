@@ -3,12 +3,18 @@
  */
 package org.redis;
 
+import org.redis.scratchbook.Client;
+import org.redis.scratchbook.Server;
+
+import java.io.IOException;
+
 public class App {
     public String getGreeting() {
         return "Hello World!";
     }
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+    public static void main(String[] args) throws IOException {
+//        System.out.println(new App().getGreeting());
+        try (Server server = new Server(9000)) { }
     }
 }
